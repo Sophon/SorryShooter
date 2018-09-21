@@ -13,8 +13,8 @@ function love.load()
     player1.setPos(300, 300)
 end
 
-function love.update()
-    movePlayer(player1)
+function love.update(dt)
+    movePlayer(player1, dt)
 end
 
 function love.draw()
@@ -22,32 +22,33 @@ function love.draw()
     love.graphics.draw(player1.sprite, player1.x, player1.y)
 end
 
-function move(object, direction)
+function move(object, direction, dt)
+    relativeSpeed = object.speed * dt * 60
     if direction == 'l' then
-        object.x = object.x - object.speed
+        object.x = object.x - relativeSpeed
     end
     if direction == 'r' then
-        object.x = object.x + object.speed
+        object.x = object.x + relativeSpeed
     end
     if direction == 'u' then
-        object.y = object.y - object.speed
+        object.y = object.y - relativeSpeed
     end
     if direction == 'd' then
-        object.y = object.y + object.speed
+        object.y = object.y + relativeSpeed
     end
 end
 
-function movePlayer(player)
+function movePlayer(player, dt)
     if love.keyboard.isDown('e') then
-        move(player, 'u')
+        move(player, 'u', dt)
     end
     if love.keyboard.isDown('d') then
-        move(player, 'd')
+        move(player, 'd', dt)
     end
     if love.keyboard.isDown('s') then
-        move(player, 'l')
+        move(player, 'l', dt)
     end
     if love.keyboard.isDown('f') then
-        move(player, 'r')
+        move(player, 'r', dt)
     end
 end
