@@ -1,6 +1,8 @@
 
 local Player = require("player")
 
+love.window.setTitle("SorryShooter")
+
 function love.load()
     sprites = {}
     sprites.background = love.graphics.newImage('sprites/background.png')
