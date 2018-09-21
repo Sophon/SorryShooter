@@ -2,7 +2,8 @@
 local Player =  {
     x = 0,
     y = 0,
-    speed = 1
+    speed = 1,
+    sprite = love.graphics.newImage('sprites/player.png')
 }
 
 function Player.setPos(x, y)
