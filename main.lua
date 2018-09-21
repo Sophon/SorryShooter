@@ -15,40 +15,10 @@ end
 
 function love.update(dt)
     player1.move(dt)
+    player1.rotate(dt)
 end
 
 function love.draw()
     love.graphics.draw(sprites.background, 0, 0)
-    love.graphics.draw(player1.sprite, player1.x, player1.y)
+    love.graphics.draw(player1.sprite, player1.position.x, player1.position.y, player1.angle, nil, nil, player1.sprite:getWidth()/2, player1.sprite:getHeight()/2)
 end
-
--- function move(object, direction, dt)
---     relativeSpeed = object.speed * dt * 60
---     if direction == 'l' then
---         object.x = object.x - relativeSpeed
---     end
---     if direction == 'r' then
---         object.x = object.x + relativeSpeed
---     end
---     if direction == 'u' then
---         object.y = object.y - relativeSpeed
---     end
---     if direction == 'd' then
---         object.y = object.y + relativeSpeed
---     end
--- end
-
--- function movePlayer(player, dt)
---     if love.keyboard.isDown('e') then
---         move(player, 'u', dt)
---     end
---     if love.keyboard.isDown('d') then
---         move(player, 'd', dt)
---     end
---     if love.keyboard.isDown('s') then
---         move(player, 'l', dt)
---     end
---     if love.keyboard.isDown('f') then
---         move(player, 'r', dt)
---     end
--- end
