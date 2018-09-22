@@ -46,6 +46,10 @@ function love.draw()
     for i, b in ipairs(bullets) do
         love.graphics.draw(b.sprite, b.position.x, b.position.y, b.direction, 0.5, 0.5, b.sprite:getWidth()/2, b.sprite:getHeight()/2)
     end
+
+    local major, minor, revision, codename = love.getVersion()
+    local str = string.format("Version %d.%d.%d - %s", major, minor, revision, codename)
+    love.graphics.print(str, 20, 20)
 end
 
 
@@ -56,16 +60,13 @@ end
 
 
 function love.keypressed(key)
-    if key == "tab" then
+    if key == "space" then
         spawnZombie(zombies)
-    end
-    if key == "k" then
-        spawnBullet(bullets, player1)
     end
 end
 
 function love.mousepressed(x, y, button,istouch)
-    if button == 1 or button == 2 or button == 3 then
+    if button == 1 then
         spawnBullet(bullets, player1)
     end
 end
