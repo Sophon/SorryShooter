@@ -1,29 +1,36 @@
 
-local Zombie =  {
-    position = {},
-    speed = 6,
-    angle = 0,
-    sprite = love.graphics.newImage('sprites/zombie.png')
-}
+local Zombie =  {}
+Zombie.sprite = love.graphics.newImage('sprites/zombie.png')
 
-function Zombie.setPos(x, y)
-    Zombie.position.x = x
-    Zombie.position.y = y
+-- RETURNS a freshly created Zombie instance
+function Zombie.create()
+    local newZombie = {
+        position = {},
+        speed = 1,
+        angle = 0,
+        sprite = love.graphics.newImage('sprites/zombie.png')
+    }
+    return setmetatable(newZombie, {__index = Zombie})
 end
 
-function Zombie.move(dt)
-   
+function Zombie:setPos(x, y)
+    self.position.x = x
+    self.position.y = y
 end
 
-function Zombie.rotate(dt, player) 
-    Zombie.angle = math.atan2(player.position.y - Zombie.position.y, player.position.x - Zombie.position.x)
+function Zombie:move(dt)
+    local distance = self.speed * dt * 60  
+    self.position.x = self.position.x + math.cos(self.angle) * distance
+    self.position.y = self.position.y + math.sin(self.angle) * distance
 end
 
-function spawnZombie(zombieTable)
-    zombie = Zombie
-    zombie.setPos(math.random(0, love.graphics.getWidth()), math.random(0, love.graphics.getHeight()))
-
-    table.insert(zombieTable, zombie)
+function Zombie:rotate(player) 
+    self.angle = math.atan2(player.position.y - self.position.y, player.position.x - self.position.x)
 end
 
-return Zombie
+function spawnZombie(zombies)
+    local newZombie = Zombie.create()
+    newZombie:setPos(math.random(0, love.graphics.getWidth()), math.random(0, love.graphics.getHeight()))
+
+    table.insert(zombies, newZombie)
+end

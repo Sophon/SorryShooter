@@ -6,29 +6,39 @@ local Player =  {
     sprite = love.graphics.newImage('sprites/player.png')
 }
 
-function Player.setPos(x, y)
-    Player.position.x = x
-    Player.position.y = y
+function Player.create()
+    local newPlayer = {
+        position = {},
+        speed = 3,
+        angle = 0,
+        sprite = love.graphics.newImage('sprites/player.png')
+    }
+    return setmetatable(newPlayer, {_index = Player})
 end
 
-function Player.move(dt)
-    distance = Player.speed * dt * 60
+function Player:setPos(x_p, y_p)
+    self.position.x = x_p
+    self.position.y = y_p
+end
+
+function Player:move(dt)
+    local distance = self.speed * dt * 60
     if love.keyboard.isDown('e') then
-        Player.position.y = Player.position.y - distance
+        self.position.y = self.position.y - distance
     end
     if love.keyboard.isDown('d') then
-        Player.position.y = Player.position.y + distance
+        self.position.y = self.position.y + distance
     end
     if love.keyboard.isDown('s') then
-        Player.position.x = Player.position.x - distance
+        self.position.x = self.position.x - distance
     end
     if love.keyboard.isDown('f') then
-        Player.position.x = Player.position.x + distance
+        self.position.x = self.position.x + distance
     end
 end
 
-function Player.rotate(dt) 
-    Player.angle = math.atan2(love.mouse.getY() - Player.position.y, love.mouse.getX() - Player.position.x)
+function Player:rotate() 
+    self.angle = math.atan2(love.mouse.getY() - self.position.y, love.mouse.getX() - self.position.x)
 end
 
 return Player
