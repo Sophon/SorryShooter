@@ -1,14 +1,13 @@
 
 local Zombie =  {}
-Zombie.sprite = love.graphics.newImage('sprites/zombie.png')
+zombieSprite = love.graphics.newImage('sprites/zombie.png')
 
--- RETURNS a freshly created Zombie instance
 function Zombie.create()
     local newZombie = {
         position = {},
         speed = 1,
         angle = 0,
-        sprite = love.graphics.newImage('sprites/zombie.png')
+        sprite = zombieSprite
     }
     return setmetatable(newZombie, {__index = Zombie})
 end

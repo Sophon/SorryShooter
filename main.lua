@@ -30,9 +30,10 @@ function love.draw()
 
     for i,z in ipairs(zombies) do
         love.graphics.draw(z.sprite, z.position.x, z.position.y, z.angle, nil, nil, z.sprite:getWidth()/2, z.sprite:getHeight()/2)
-        love.graphics.printf("order" ..i, 0, 50, love.graphics.getWidth(), "center")
     end
 end
+
+
 
 function distance(player, enemy)
     return math.sqrt((player.position.x - enemy.position.x)^2 + (player.position.y - enemy.position.y)^2)
