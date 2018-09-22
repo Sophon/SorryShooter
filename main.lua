@@ -21,6 +21,9 @@ function love.update(dt)
     for i, z in ipairs(zombies) do
         z:rotate(player1)
         z:move(dt)
+        if distance(player1, z) < 30 then 
+            killAllZombies()
+        end
     end
 end
 
@@ -42,6 +45,12 @@ end
 function love.keypressed(key, scancode, isrepeat)
     if key == "u" then
         spawnZombie(zombies)
+    end
+end
+
+function killAllZombies()
+    for i, z in ipairs(zombies) do
+        zombies[i] = nil
     end
 end
 
