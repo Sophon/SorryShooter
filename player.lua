@@ -16,9 +16,9 @@ function Player.create()
     return setmetatable(newPlayer, {_index = Player})
 end
 
-function Player:setPos(x_p, y_p)
-    self.position.x = x_p
-    self.position.y = y_p
+function Player:setPos(x, y)
+    self.position.x = x
+    self.position.y = y
 end
 
 function Player:move(dt)
