@@ -27,7 +27,7 @@ function love.update(dt)
     for i, z in ipairs(zombies) do
         z:rotate(player1)
         z:move(dt)
-        if distance(player1, z) < hitbox then 
+        if distance(player1, z) <= hitbox then 
             killAllZombies()
         end
     end
@@ -38,9 +38,31 @@ function love.update(dt)
 
     for i = #bullets, 1, -1 do 
        local b = bullets[i]
-       if b.pos.x < 0 or b.pos.y < 0 or b.pos.x < screenW or b.pos.y < screenH then
-        table.remove(bullets[i])
+       if b.pos.x < 0 or b.pos.y < 0 or b.pos.x > screenW or b.pos.y > screenH then
+            table.remove(bullets, i)
        end
+    end
+
+    for i, z in ipairs(zombies) do
+        for j, b in ipairs(bullets) do
+            if distance(b, z) <= hitbox then
+                b.dead = true
+                z.dead = true
+            end
+        end
+    end
+
+    for i = #bullets, 1, -1 do
+        local b = bullets[i]
+        if b.dead == true then
+            table.remove(bullets, i)
+        end
+    end
+    for i = #zombies, 1, -1 do
+        local z = zombies[i]
+        if z.dead == true then
+            table.remove(zombies, i)
+        end
     end
 end
 

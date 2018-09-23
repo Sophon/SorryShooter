@@ -7,7 +7,8 @@ function Bullet.create()
         pos = {},
         speed = 10,
         sprite = bulletSprite,
-        direction = 0
+        direction = 0,
+        dead = false
     }
     return setmetatable(newBullet, {__index = Bullet})
 end

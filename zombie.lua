@@ -7,7 +7,8 @@ function Zombie.create()
         pos = {},
         speed = 1,
         angle = 0,
-        sprite = zombieSprite
+        sprite = zombieSprite,
+        dead = false
     }
     return setmetatable(newZombie, {__index = Zombie})
 end
