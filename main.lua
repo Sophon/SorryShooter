@@ -4,6 +4,8 @@ local Player = require("player")
 local Zombie = require("zombie")
 
 hitbox = 20
+screenW = love.graphics.getWidth()
+screenH = love.graphics.getHeight()
 
 love.window.setTitle("Shooter")
 
@@ -36,7 +38,7 @@ function love.update(dt)
 
     for i = #bullets, 1, -1 do 
        local b = bullets[i]
-       if b.pos.x < 0 or b.pos.y < 0 or b.pos.x < love.graphics.getWidth() or b.pos.y < love.graphics.getHeight() then
+       if b.pos.x < 0 or b.pos.y < 0 or b.pos.x < screenW or b.pos.y < screenH then
         table.remove(bullets[i])
        end
     end
