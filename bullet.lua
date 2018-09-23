@@ -4,7 +4,7 @@ bulletSprite = love.graphics.newImage('sprites/bullet.png')
 
 function Bullet.create()
     local newBullet = {
-        position = {},
+        pos = {},
         speed = 10,
         sprite = bulletSprite,
         direction = 0
@@ -13,8 +13,8 @@ function Bullet.create()
 end
 
 function Bullet:setPos(x, y)
-    self.position.x = x
-    self.position.y = y
+    self.pos.x = x
+    self.pos.y = y
 end
 
 function Bullet:setDirection(angle)
@@ -23,14 +23,14 @@ end
 
 function Bullet:move(dt)
     local distance = self.speed * dt * 60  
-    self.position.x = self.position.x + math.cos(self.direction) * distance
-    self.position.y = self.position.y + math.sin(self.direction) * distance
+    self.pos.x = self.pos.x + math.cos(self.direction) * distance
+    self.pos.y = self.pos.y + math.sin(self.direction) * distance
 end
 
 
 function spawnBullet(bullets, player)
     local newBullet = Bullet.create()
-    newBullet:setPos(player.position.x, player.position.y)
+    newBullet:setPos(player.pos.x, player.pos.y)
     newBullet.direction = player.angle
 
     table.insert(bullets, newBullet)

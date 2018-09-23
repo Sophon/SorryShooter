@@ -4,7 +4,7 @@ zombieSprite = love.graphics.newImage('sprites/zombie.png')
 
 function Zombie.create()
     local newZombie = {
-        position = {},
+        pos = {},
         speed = 1,
         angle = 0,
         sprite = zombieSprite
@@ -13,18 +13,18 @@ function Zombie.create()
 end
 
 function Zombie:setPos(x, y)
-    self.position.x = x
-    self.position.y = y
+    self.pos.x = x
+    self.pos.y = y
 end
 
 function Zombie:move(dt)
     local distance = self.speed * dt * 60  
-    self.position.x = self.position.x + math.cos(self.angle) * distance
-    self.position.y = self.position.y + math.sin(self.angle) * distance
+    self.pos.x = self.pos.x + math.cos(self.angle) * distance
+    self.pos.y = self.pos.y + math.sin(self.angle) * distance
 end
 
 function Zombie:rotate(player) 
-    self.angle = math.atan2(player.position.y - self.position.y, player.position.x - self.position.x)
+    self.angle = math.atan2(player.pos.y - self.pos.y, player.pos.x - self.pos.x)
 end
 
 function spawnZombie(zombies)
