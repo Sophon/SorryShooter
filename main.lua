@@ -1,7 +1,11 @@
 
+
+
 local Bullet = require("bullet")
 local Player = require("player")
 local Zombie = require("zombie")
+
+require("load")
 
 hitbox = 20
 screenW = love.graphics.getWidth()
@@ -10,20 +14,14 @@ screenH = love.graphics.getHeight()
 love.window.setTitle("Shooter")
 
 function love.load()
-    sprites = {}
-    sprites.background = love.graphics.newImage('sprites/background.png')
-
-    player1 = Player
-    player1:setPos(300, 300)
-    
-    zombies = {}
-    bullets = {}
+    Load()
 end
 
 function love.update(dt)
     player1:move(dt)
     player1:rotate()
 
+    --TODO: extract some into functions?
     for i, z in ipairs(zombies) do
         z:rotate(player1)
         z:move(dt)
