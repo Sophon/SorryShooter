@@ -1,6 +1,4 @@
 
-require("load")
-
 function Update(dt)
     player1:move(dt)
     player1:rotate()
