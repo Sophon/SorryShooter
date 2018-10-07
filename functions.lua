@@ -1,6 +1,5 @@
 
 
-hitbox = 20
 screenW = love.graphics.getWidth()
 screenH = love.graphics.getHeight()
 
@@ -13,7 +12,7 @@ function spawnZombies(dt)
         timer = timer - dt
         if timer <= 0 then
             spawnZombie(zombies)
-            maxTime = maxTime * 0.95
+            maxTime = maxTime * timeDecrRatio
             timer = maxTime
         end
     end
@@ -21,12 +20,12 @@ end
 
 function resetGame()
     --reset timer
-    maxTime = 2
+    maxTime = defaultMaxTime
     timer = maxTime
 
     --zabit vsechny zombies
     killAllZombies()
-    
+
     --gamestate
 end
 

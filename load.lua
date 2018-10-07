@@ -6,7 +6,7 @@ local Zombie = require "units.zombie"
 function Load() 
     gameState = 1
 
-    maxTime = 2
+    maxTime = defaultMaxTime
     timer = maxTime
 
     sprites = {}

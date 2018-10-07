@@ -2,6 +2,7 @@
 require("load")
 require("update")
 require("draw")
+require("data")
 require("functions")
 
 
