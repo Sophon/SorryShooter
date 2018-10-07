@@ -3,6 +3,7 @@ function Update(dt)
     player1:move(dt)
     player1:rotate()
 
+    --collision
     for i, z in ipairs(zombies) do
         z:rotate(player1)
         z:move(dt)
@@ -11,10 +12,12 @@ function Update(dt)
         end
     end
 
+    --shoot bullet
     for i, b in ipairs(bullets) do
         b:move(dt)
     end
 
+    --bullet out of bounds
     for i = #bullets, 1, -1 do 
        local b = bullets[i]
        if b.pos.x < 0 or b.pos.y < 0 or b.pos.x > screenW or b.pos.y > screenH then
@@ -22,6 +25,7 @@ function Update(dt)
        end
     end
 
+    --bullet hits zombie
     for i, z in ipairs(zombies) do
         for j, b in ipairs(bullets) do
             if distance(b, z) <= hitbox then
@@ -31,6 +35,7 @@ function Update(dt)
         end
     end
 
+    --cleanup
     for i = #bullets, 1, -1 do
         local b = bullets[i]
         if b.dead == true then
