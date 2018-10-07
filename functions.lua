@@ -27,6 +27,7 @@ function resetGame()
     killAllZombies()
 
     --gamestate
+    gameState = 0
 end
 
 function love.mousepressed(x, y, button,istouch)
