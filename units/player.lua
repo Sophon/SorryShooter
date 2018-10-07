@@ -16,9 +16,9 @@ function Player.create()
     return setmetatable(newPlayer, {_index = Player})
 end
 
-function Player:setPos(x, y)
-    self.pos.x = x
-    self.pos.y = y
+function Player:setPos()
+    self.pos.x = love.graphics.getWidth()/2
+    self.pos.y = love.graphics.getHeight()/2
 end
 
 function Player:move(dt)

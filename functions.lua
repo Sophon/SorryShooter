@@ -34,6 +34,7 @@ function love.mousepressed(x, y, button,istouch)
 
     if gameState ~= 1 then
         gameState = 1
+        player1:setPos()
     end
 end
 
