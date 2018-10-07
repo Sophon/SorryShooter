@@ -1,11 +1,13 @@
 
 function Update(dt)
-    player1:move(dt)
-    player1:rotate()
 
+    if gameState == 1 then
+        player1:move(dt)
+        player1:rotate()
+    end
+    
     spawnZombies(dt)
 
-    --player
     for i, z in ipairs(zombies) do
         z:rotate(player1)
         z:move(dt)
