@@ -1,7 +1,7 @@
 
-local Bullet = require("bullet")
-local Player = require("player")
-local Zombie = require("zombie")
+local Bullet = require "units.bullet"
+local Player = require "units.player"
+local Zombie = require "units.zombie"
 
 function Load() 
     sprites = {}

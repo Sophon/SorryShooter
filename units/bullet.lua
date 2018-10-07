@@ -36,3 +36,5 @@ function spawnBullet(bullets, player)
 
     table.insert(bullets, newBullet)
 end
+
+return Bullet

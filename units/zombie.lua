@@ -34,3 +34,5 @@ function spawnZombie(zombies)
 
     table.insert(zombies, newZombie)
 end
+
+return Zombie

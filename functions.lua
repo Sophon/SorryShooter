@@ -1,4 +1,9 @@
 
+
+hitbox = 20
+screenW = love.graphics.getWidth()
+screenH = love.graphics.getHeight()
+
 function distance(a, b)
     return math.sqrt((a.pos.x - b.pos.x)^2 + (a.pos.y - b.pos.y)^2)
 end

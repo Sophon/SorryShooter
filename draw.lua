@@ -1,4 +1,6 @@
 
+love.window.setTitle("Shooter")
+
 function Draw()
     love.graphics.draw(sprites.background, 0, 0)
 
