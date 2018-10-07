@@ -19,14 +19,11 @@ function spawnZombies(dt)
 end
 
 function resetGame()
-    --reset timer
     maxTime = defaultMaxTime
     timer = maxTime
 
-    --zabit vsechny zombies
     killAllZombies()
 
-    --gamestate
     gameState = 0
 end
 
