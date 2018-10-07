@@ -5,12 +5,12 @@ function Update(dt)
 
     spawnZombies(dt)
 
-    --collision
+    --player
     for i, z in ipairs(zombies) do
         z:rotate(player1)
         z:move(dt)
         if distance(player1, z) <= hitbox then 
-            killAllZombies()
+            resetGame()
         end
     end
 

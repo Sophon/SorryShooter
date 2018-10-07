@@ -19,10 +19,15 @@ function spawnZombies(dt)
     end
 end
 
-function love.keypressed(key)
-    if key == "space" then
-        spawnZombie(zombies)
-    end
+function resetGame()
+    --reset timer
+    maxTime = 2
+    timer = maxTime
+
+    --zabit vsechny zombies
+    killAllZombies()
+    
+    --gamestate
 end
 
 function love.mousepressed(x, y, button,istouch)
