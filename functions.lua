@@ -28,8 +28,12 @@ function resetGame()
 end
 
 function love.mousepressed(x, y, button,istouch)
-    if button == 1 then
+    if button == 1 and gameState == 1 then
         spawnBullet(bullets, player1)
+    end
+
+    if gameState ~= 1 then
+        gameState = 1
     end
 end
 

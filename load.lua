@@ -4,7 +4,7 @@ local Player = require "units.player"
 local Zombie = require "units.zombie"
 
 function Load() 
-    gameState = 1
+    gameState = 0
 
     maxTime = defaultMaxTime
     timer = maxTime

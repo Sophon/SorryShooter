@@ -4,8 +4,16 @@ function Draw()
     love.graphics.draw(sprites.background, 0, 0)
 
     local major, minor, revision, codename = love.getVersion()
-    local str = string.format("Version %d.%d.%d - %s", major, minor, revision, codename)
-    love.graphics.print(str, 20, 20)
+    versionFont = love.graphics.newFont(10)
+    love.graphics.setFont(versionFont)
+    local version = string.format("Version %d.%d.%d - %s", major, minor, revision, codename)
+    love.graphics.print(version, 20, 20)
+
+    if gameState ~= 1 then
+        promptFont = love.graphics.newFont(40)
+        love.graphics.setFont(promptFont)
+        love.graphics.printf("Click anywhere to begin.", 0, 50, love.graphics.getWidth(), "center")
+    end
     
     love.graphics.draw(player1.sprite, player1.pos.x, player1.pos.y, player1.angle, nil, nil, player1.sprite:getWidth()/2, player1.sprite:getHeight()/2)
 
