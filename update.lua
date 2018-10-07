@@ -3,6 +3,8 @@ function Update(dt)
     player1:move(dt)
     player1:rotate()
 
+    spawnZombies(dt)
+
     --collision
     for i, z in ipairs(zombies) do
         z:rotate(player1)
