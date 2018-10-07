@@ -15,7 +15,7 @@ function Draw()
     if gameState ~= 1 then
         promptFont = love.graphics.newFont(40)
         love.graphics.setFont(promptFont)
-        love.graphics.printf("Click anywhere to begin.", 0, 50, love.graphics.getWidth(), "center")
+        love.graphics.printf("Click anywhere to begin!", 0, 50, love.graphics.getWidth(), "center")
     end
     
     love.graphics.draw(player1.sprite, player1.pos.x, player1.pos.y, player1.angle, nil, nil, player1.sprite:getWidth()/2, player1.sprite:getHeight()/2)
