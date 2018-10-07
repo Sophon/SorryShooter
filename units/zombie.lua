@@ -29,8 +29,24 @@ function Zombie:rotate(player)
 end
 
 function spawnZombie(zombies)
+    local coordinate = {x = 0, y = 0}
+    local side  = math.random(1,4)
+    if side == 1 then --top
+        coordinate.x = math.random(0, screenW)
+        coordinate.y = -30
+    elseif side == 2 then --right
+        coordinate.x = screenW + 30
+        coordinate.y = math.random(0, screenH)
+    elseif side == 3 then --bot
+        coordinate.x = math.random(0, screenW)
+        coordinate.y = screenH + 30
+    else --left
+        coordinate.x = -30
+        coordinate.y = math.random(0, screenH)
+    end
+
     local newZombie = Zombie.create()
-    newZombie:setPos(math.random(0, love.graphics.getWidth()), math.random(0, love.graphics.getHeight()))
+    newZombie:setPos(coordinate.x, coordinate.y)
 
     table.insert(zombies, newZombie)
 end
