@@ -23,16 +23,16 @@ end
 
 function Player:move(dt)
     local distance = self.speed * dt * 60
-    if love.keyboard.isDown('e') then
+    if love.keyboard.isDown('e') and self.pos.y > 0 then
         self.pos.y = self.pos.y - distance
     end
-    if love.keyboard.isDown('d') then
+    if love.keyboard.isDown('d') and self.pos.y < screenH then
         self.pos.y = self.pos.y + distance
     end
-    if love.keyboard.isDown('s') then
+    if love.keyboard.isDown('s') and self.pos.x > 0 then
         self.pos.x = self.pos.x - distance
     end
-    if love.keyboard.isDown('f') then
+    if love.keyboard.isDown('f') and self.pos.x < screenW then
         self.pos.x = self.pos.x + distance
     end
 end
