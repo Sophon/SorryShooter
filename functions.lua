@@ -21,6 +21,7 @@ function resetGame()
     killAllZombies()
 
     gameState = 0
+    score = 0
 end
 
 function love.mousepressed(x, y, button,istouch)

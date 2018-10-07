@@ -3,11 +3,14 @@
 function Draw()
     love.graphics.draw(sprites.background, 0, 0)
 
-    local major, minor, revision, codename = love.getVersion()
-    versionFont = love.graphics.newFont(10)
+    versionFont = love.graphics.newFont(15)
     love.graphics.setFont(versionFont)
-    local version = string.format("Version %d.%d.%d - %s", major, minor, revision, codename)
-    love.graphics.print(version, 20, 20)
+    local scoreStr = string.format("Score: %d", score)
+    love.graphics.print(scoreStr, 20, 20)
+
+    -- local major, minor, revision, codename = love.getVersion()
+    -- local version = string.format("Version %d.%d.%d - %s", major, minor, revision, codename)
+    -- love.graphics.print(version, 20, 20)
 
     if gameState ~= 1 then
         promptFont = love.graphics.newFont(40)

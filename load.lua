@@ -14,6 +14,8 @@ function Load()
 
     player1 = Player
     player1:setPos()
+
+    score = 0
     
     zombies = {}
     bullets = {}

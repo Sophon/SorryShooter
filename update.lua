@@ -34,6 +34,7 @@ function Update(dt)
         for j, b in ipairs(bullets) do
             if distance(b, z) <= hitbox then
                 b.dead = true
+                score = score + 1
                 z.dead = true
             end
         end
