@@ -3,7 +3,12 @@ local Bullet = require "units.bullet"
 local Player = require "units.player"
 local Zombie = require "units.zombie"
 
+bgm = love.audio.newSource("sounds/theme.mp3", "static")
+
 function Load() 
+    bgm:play()
+    bgm:setVolume(0.3)
+
     gameState = 0
 
     maxTime = defaultMaxTime
