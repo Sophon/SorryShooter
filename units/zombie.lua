@@ -5,7 +5,7 @@ zombieSprite = love.graphics.newImage('sprites/zombie.png')
 function Zombie.create()
     local newZombie = {
         pos = {},
-        speed = 1,
+        speed = 1.2,
         angle = 0,
         sprite = zombieSprite,
         dead = false
