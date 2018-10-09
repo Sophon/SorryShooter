@@ -3,10 +3,17 @@
 function Draw()
     love.graphics.draw(sprites.background, 0, 0)
 
+    --score
     versionFont = love.graphics.newFont(15)
     love.graphics.setFont(versionFont)
     local scoreStr = string.format("Score: %d", score)
     love.graphics.print(scoreStr, 20, 20)
+
+    --soundtrack credit
+    creditFont = love.graphics.newFont(12)
+    love.graphics.setFont(creditFont)
+    local creditStr = "soundtrack by K0rn4lsky"
+    love.graphics.print(creditStr, 10, screenH - 30)
 
     -- local major, minor, revision, codename = love.getVersion()
     -- local version = string.format("Version %d.%d.%d - %s", major, minor, revision, codename)
