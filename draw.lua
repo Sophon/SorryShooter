@@ -34,4 +34,8 @@ function Draw()
     for i, b in ipairs(bullets) do
         love.graphics.draw(b.sprite, b.pos.x, b.pos.y, b.direction, 0.5, 0.5, b.sprite:getWidth()/2, b.sprite:getHeight()/2)
     end
+
+    --debugging purposes
+    -- love.graphics.print(table.getn(zombies), 350, screenH - 30)
+    -- love.graphics.print(table.getn(bullets), 500, screenH - 30)
 end
