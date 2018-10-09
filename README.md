@@ -5,3 +5,5 @@ A simple shooter game using Lua + Love2D. Part of a great Udemy course [Lua Prog
 Here's what it looks like:
 
 ![Alt Text](https://media.giphy.com/media/RJvDeWdkm64gXSHr0Z/giphy.gif)
+
+Music kindly provided by K0rn4lsky.
